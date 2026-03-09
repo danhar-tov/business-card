@@ -31,7 +31,6 @@
     padding: 40px 20px;
   }
 
-  /* Animated grid background */
   body::before {
     content: '';
     position: fixed;
@@ -64,7 +63,7 @@
   .card {
     position: relative;
     z-index: 1;
-    max-width: 680px;
+    max-width: 720px;
     width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -78,7 +77,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* Top accent bar */
   .card-bar {
     height: 4px;
     background: linear-gradient(90deg, var(--accent3), var(--accent1));
@@ -96,167 +94,168 @@
     50% { transform: translateX(100%); }
   }
 
-  .card-inner {
-    padding: 52px 56px 48px;
-  }
+  .card-inner { padding: 52px 56px 48px; }
 
-  /* Header */
   .header {
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
     animation: fadeUp 0.8s 0.1s cubic-bezier(0.22,1,0.36,1) both;
   }
 
-  .logo-mark {
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .logo-mark svg {
-    width: 100%;
-    height: 100%;
-  }
+  .logo-mark { width: 64px; height: 64px; flex-shrink: 0; }
+  .logo-mark svg { width: 100%; height: 100%; }
 
-  .brand {
-    flex: 1;
-  }
+  .brand { flex: 1; }
 
   .company-type {
     font-family: 'Unbounded', sans-serif;
-    font-size: 9px;
-    font-weight: 300;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--accent1);
-    margin-bottom: 6px;
-    opacity: 0.8;
+    font-size: 9px; font-weight: 300;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--accent1); margin-bottom: 6px; opacity: 0.8;
   }
 
   .company-name {
     font-family: 'Unbounded', sans-serif;
-    font-size: 36px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    font-size: 36px; font-weight: 900;
+    letter-spacing: -0.02em; line-height: 1;
     background: linear-gradient(135deg, #fff 30%, var(--accent1));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
 
   .company-form {
     font-family: 'Unbounded', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    margin-top: 4px;
+    font-size: 11px; font-weight: 300;
+    color: var(--muted); letter-spacing: 0.15em; margin-top: 4px;
   }
 
-  /* Divider */
   .divider {
     height: 1px;
     background: linear-gradient(90deg, var(--accent2), var(--border), transparent);
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     animation: fadeUp 0.8s 0.2s cubic-bezier(0.22,1,0.36,1) both;
   }
 
-  /* Team section */
+  .divider2 {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent2), var(--border), transparent);
+    margin: 36px 0; opacity: 0.5;
+  }
+
   .section-label {
     font-family: 'Unbounded', sans-serif;
-    font-size: 8px;
-    font-weight: 400;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    color: var(--muted);
+    font-size: 8px; font-weight: 400;
+    letter-spacing: 0.5em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+  }
+
+  /* Services */
+  .services {
+    animation: fadeUp 0.8s 0.25s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .services-lead {
+    font-size: 14px; font-weight: 300;
+    line-height: 1.8; color: rgba(232,244,255,0.7);
     margin-bottom: 24px;
   }
 
-  .team {
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .service-item {
+    padding: 18px 20px;
+    border: 1px solid rgba(0,200,255,0.1);
+    background: rgba(0,200,255,0.03);
+    border-radius: 1px;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent1));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-item:hover { border-color: rgba(0,200,255,0.25); background: rgba(0,200,255,0.06); }
+  .service-item:hover::before { opacity: 1; }
+
+  .service-header {
     display: flex;
-    flex-direction: column;
-    gap: 0;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .service-icon { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.8; }
+
+  .service-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent1);
+  }
+
+  .service-desc {
+    font-size: 12px; font-weight: 300;
+    line-height: 1.7; color: rgba(232,244,255,0.6);
+  }
+
+  /* Team */
+  .team {
+    display: flex; flex-direction: column; gap: 0;
     animation: fadeUp 0.8s 0.3s cubic-bezier(0.22,1,0.36,1) both;
   }
 
   .person {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: grid; grid-template-columns: 1fr auto;
     align-items: center;
     padding: 18px 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
+    position: relative; overflow: hidden;
     cursor: default;
   }
 
   .person::before {
     content: '';
-    position: absolute;
-    left: -100%;
-    top: 0; bottom: 0;
-    width: 3px;
+    position: absolute; left: -100%; top: 0; bottom: 0; width: 3px;
     background: linear-gradient(180deg, var(--accent1), var(--accent2));
     transition: left 0.3s cubic-bezier(0.22,1,0.36,1);
   }
 
   .person:hover::before { left: 0; }
-
-  .person:hover {
-    background: rgba(0,200,255,0.03);
-    padding-left: 16px;
-    transition: padding 0.3s cubic-bezier(0.22,1,0.36,1), background 0.3s;
-  }
-
+  .person:hover { background: rgba(0,200,255,0.03); padding-left: 16px; transition: padding 0.3s cubic-bezier(0.22,1,0.36,1), background 0.3s; }
   .person:last-child { border-bottom: none; }
 
   .person-role {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent1);
-    margin-bottom: 4px;
-    opacity: 0.7;
+    font-size: 10px; font-weight: 300;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent1); margin-bottom: 4px; opacity: 0.7;
   }
 
   .person-name {
     font-family: 'Unbounded', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--text);
+    font-size: 16px; font-weight: 400;
+    letter-spacing: 0.02em; color: var(--text);
   }
-
-  .person-phone {
-    display: inline-block;
-    margin-top: 5px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    color: var(--accent1);
-    text-decoration: none;
-    opacity: 0.75;
-    transition: opacity 0.2s;
-  }
-  .person-phone:hover { opacity: 1; text-decoration: underline; }
 
   .person-tag {
     font-family: 'Unbounded', sans-serif;
-    font-size: 8px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    color: var(--muted);
+    font-size: 8px; font-weight: 300;
+    letter-spacing: 0.2em; color: var(--muted);
     border: 1px solid rgba(0,200,255,0.2);
-    padding: 4px 10px;
-    border-radius: 1px;
-    text-transform: uppercase;
+    padding: 4px 10px; border-radius: 1px; text-transform: uppercase;
   }
 
   /* Footer */
@@ -264,24 +263,73 @@
     margin-top: 44px;
     padding-top: 28px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     animation: fadeUp 0.8s 0.4s cubic-bezier(0.22,1,0.36,1) both;
   }
 
-  .footer-text {
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
+  .footer-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 20px;
+  }
+
+  .footer-about { flex: 1; }
+
+  .footer-about-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.12em; color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .footer-about-desc {
+    font-size: 11px; font-weight: 300;
+    line-height: 1.75; color: var(--muted);
+  }
+
+  .footer-contact {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .footer-contact-label {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 7px; font-weight: 300;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+
+  .footer-contact-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--text); margin-bottom: 5px;
+  }
+
+  .footer-contact-phone {
+    font-size: 14px; font-weight: 400;
+    letter-spacing: 0.08em; color: var(--accent1);
+    text-decoration: none; opacity: 0.85;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .footer-contact-phone:hover { opacity: 1; }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .footer-copy {
+    font-size: 10px; font-weight: 300;
+    letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase;
   }
 
   .footer-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent1);
     box-shadow: 0 0 8px var(--accent1), 0 0 16px rgba(0,200,255,0.4);
     animation: pulse 2s ease-in-out infinite;
@@ -292,12 +340,14 @@
     50% { opacity: 0.5; transform: scale(0.7); }
   }
 
-  /* Responsive */
-  @media (max-width: 520px) {
+  @media (max-width: 560px) {
     .card-inner { padding: 36px 28px 32px; }
     .company-name { font-size: 28px; }
     .header { gap: 16px; }
     .person-tag { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-main { flex-direction: column; gap: 20px; }
+    .footer-contact { text-align: left; }
   }
 </style>
 </head>
@@ -329,39 +379,94 @@
 
     <div class="divider"></div>
 
-    <div class="section-label">Керівництво</div>
+    <div class="services">
+      <div class="section-label">Що ми робимо</div>
+      <p class="services-lead">
+        Надаємо комплексні ІТ-послуги для бізнесу — від впровадження та налаштування ERP-систем до технічної підтримки й автоматизації бізнес-процесів.
+      </p>
+      <div class="services-grid">
 
-    <div class="team">
-      <div class="person">
-        <div>
-          <div class="person-role">Співвласник</div>
-          <div class="person-name">Банга О.В.</div>
-          <a class="person-phone" href="tel:+380635469775">+38 (063) 546-97-75</a>
+        <div class="service-item">
+          <div class="service-header">
+            <svg class="service-icon" viewBox="0 0 20 20" fill="none">
+              <rect x="1" y="1" width="8" height="8" stroke="#00c8ff" stroke-width="1"/>
+              <rect x="11" y="1" width="8" height="8" stroke="#00c8ff" stroke-width="1" opacity="0.5"/>
+              <rect x="1" y="11" width="8" height="8" stroke="#00c8ff" stroke-width="1" opacity="0.5"/>
+              <rect x="11" y="11" width="8" height="8" stroke="#00c8ff" stroke-width="1"/>
+            </svg>
+            <div class="service-title">BAS / ERP системи</div>
+          </div>
+          <div class="service-desc">
+            Впровадження та налаштування систем BAS під специфіку вашого підприємства. Повний цикл: аналіз бізнес-процесів, проєктування, налаштування конфігурацій, запуск в експлуатацію та навчання персоналу.
+          </div>
         </div>
-        <div class="person-tag">Co-Founder</div>
-      </div>
 
-      <div class="person">
-        <div>
-          <div class="person-role">Співвласник</div>
-          <div class="person-name">Макогонюк О.В.</div>
-          <a class="person-phone" href="tel:+380683735773">+38 (068) 373-57-73</a>
+        <div class="service-item">
+          <div class="service-header">
+            <svg class="service-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8.5" stroke="#00c8ff" stroke-width="1" opacity="0.5"/>
+              <path d="M10 5v5.5l3.5 3.5" stroke="#00c8ff" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <div class="service-title">Технічна підтримка</div>
+          </div>
+          <div class="service-desc">
+            Постійний супровід встановлених рішень: усунення збоїв, оновлення конфігурацій, консультації користувачів. Оперативне реагування та гарантована доступність системи для безперервної роботи бізнесу.
+          </div>
         </div>
-        <div class="person-tag">Co-Founder</div>
-      </div>
 
-      <div class="person">
-        <div>
-          <div class="person-role">Директор</div>
-          <div class="person-name">Макогонюк М.О.</div>
+        <div class="service-item">
+          <div class="service-header">
+            <svg class="service-icon" viewBox="0 0 20 20" fill="none">
+              <polyline points="1,15 5,9 9,11 13,5 19,8" stroke="#00c8ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="8" r="1.5" fill="#00c8ff"/>
+            </svg>
+            <div class="service-title">Автоматизація</div>
+          </div>
+          <div class="service-desc">
+            Автоматизація облікових і управлінських процесів: бухгалтерія, склад, продажі, CRM. Налаштування обміну даними між системами та інтеграція з зовнішніми сервісами і платформами.
+          </div>
         </div>
-        <div class="person-tag">CEO</div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <svg class="service-icon" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="3" width="16" height="11" rx="1" stroke="#00c8ff" stroke-width="1" opacity="0.6"/>
+              <line x1="7" y1="17" x2="13" y2="17" stroke="#00c8ff" stroke-width="1" stroke-linecap="round"/>
+              <line x1="10" y1="14" x2="10" y2="17" stroke="#00c8ff" stroke-width="1"/>
+              <line x1="5" y1="8" x2="15" y2="8" stroke="#00c8ff" stroke-width="0.9" opacity="0.7"/>
+              <line x1="5" y1="10.5" x2="11" y2="10.5" stroke="#00c8ff" stroke-width="0.9" opacity="0.5"/>
+            </svg>
+            <div class="service-title">Консультації</div>
+          </div>
+          <div class="service-desc">
+            Детальний аналіз поточних процесів і підбір оптимальних ІТ-рішень для вашого бізнесу. Допомагаємо уникнути зайвих витрат і вибрати інструменти, що дійсно вирішують завдання компанії.
+          </div>
+        </div>
+
       </div>
     </div>
 
+    <div class="divider2"></div>
+
+    <!-- Footer -->
     <div class="footer">
-      <div class="footer-text">Данхар ТОВ &nbsp;·&nbsp; Україна</div>
-      <div class="footer-dot"></div>
+      <div class="footer-main">
+        <div class="footer-about">
+          <div class="footer-about-name">Данхар ТОВ · Україна</div>
+          <div class="footer-about-desc">
+            Українська ІТ-компанія, що спеціалізується на впровадженні ERP-систем BAS та автоматизації бізнес-процесів. Працюємо з підприємствами різного масштабу — від малого бізнесу до середніх виробничих і торгових компаній.
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-contact-label">Консультація</div>
+          <div class="footer-contact-name">Макогонюк М.О.</div>
+          <a class="footer-contact-phone" href="tel:+380937664420">+38 (093) 766-44-20</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© Данхар ТОВ &nbsp;·&nbsp; Всі права захищено</div>
+        <div class="footer-dot"></div>
+      </div>
     </div>
 
   </div>
